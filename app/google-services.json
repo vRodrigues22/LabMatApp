@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "534660525846",
+    "project_id": "ipet-afaac",
+    "storage_bucket": "ipet-afaac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534660525846:android:553563cd118f28d807aa37",
+        "android_client_info": {
+          "package_name": "com.example.ipet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJrv5KpF6fatYZKibq5Z98ENqqXYza4_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
