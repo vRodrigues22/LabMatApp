@@ -68,7 +68,7 @@ public class CadastroActivity extends AppCompatActivity {
                                     Toast.makeText(CadastroActivity.this, "Registro bem-sucedido", Toast.LENGTH_SHORT).show();
 
                                     //  redirecionar o usuário para a tela de login ou qualquer outra tela apropriada aqui
-                                    Intent intent = new Intent(CadastroActivity.this, InicialClienteActivity.class);
+                                    Intent intent = new Intent(CadastroActivity.this, ClientesActivity.class);
                                     startActivity(intent);
                                     finish(); // Encerrar a atividade atual, se necessário
                                 } else {

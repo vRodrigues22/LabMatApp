@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background= "@color/black">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +22,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
-        android:text="iPet"
+        android:textColor="@color/white"
+        android:text="LabMat"
         android:textSize="48sp" />
 
     <TextView
@@ -29,18 +32,19 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
+        android:textColor="@color/white"
         android:text="Crie sua conta"
         android:textSize="24sp" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-----------------------------------------------------------"
-        android:textSize="24sp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp" />
-
-
+        android:textColor="@color/white"
+        android:layout_marginTop="8dp"
+        android:text="-----------------------------------------------------------"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView9"
@@ -49,6 +53,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:text="Nome"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
     <EditText
@@ -57,10 +62,10 @@
         android:layout_height="61dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bg_edit"
+        android:background="@color/white"
         android:drawableStart="@drawable/ic_user_on"
         android:drawablePadding="16dp"
-        android:hint="Ex Alex Siza"
+        android:hint="Ex Ana Maria"
         android:inputType="text"
         android:padding="16dp"
         android:textSize="16sp" />
@@ -70,6 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
         android:layout_marginTop="20dp"
         android:text="Email"
         android:textSize="16sp" />
@@ -80,8 +86,8 @@
         android:layout_height="68dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bg_edit"
         android:drawableStart="@drawable/ic_email_red"
+        android:background= "@color/white"
         android:drawablePadding="16dp"
         android:hint="Digite seu E-mail"
         android:inputType="textEmailAddress"
@@ -93,6 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
         android:layout_marginTop="16dp"
         android:text="Senha"
         android:textSize="16sp" />
@@ -103,8 +110,8 @@
         android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bg_edit"
         android:drawableStart="@drawable/ic_password"
+        android:background= "@color/white"
         android:drawablePadding="16dp"
         android:hint="Digite sua senha"
         android:inputType="textPassword"
@@ -116,6 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
         android:layout_marginTop="16dp"
         android:text="Confirmação de senha"
         android:textSize="16sp" />
@@ -125,7 +133,7 @@
         android:layout_height="53dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bg_edit"
+        android:background= "@color/white"
         android:drawableStart="@drawable/ic_password"
         android:drawablePadding="16dp"
         android:hint="Confirme sua senha"
@@ -140,8 +148,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="32dp"
 
-        android:backgroundTint="#0934BD"
         android:background="@drawable/round_button"
+        android:backgroundTint="#0934BD"
         android:fontFamily="sans-serif-medium"
         android:onClick="validaDados"
         android:paddingStart="24dp"
@@ -153,9 +161,9 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textColorHighlight="#0934BD"
+        android:textColorHighlight="#7AD9E4"
 
-        android:textColorLink="#0934BD"
+        android:textColorLink="#F0F0F0"
         android:textSize="20sp" />
 </LinearLayout>
 </ScrollView>
