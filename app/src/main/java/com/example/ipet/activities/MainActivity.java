@@ -7,7 +7,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ipet.ParceirosActivity;
 import com.example.ipet.R;
 
 
@@ -41,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Direcionar para a atividade ParceirosActivity
-                Intent intent = new Intent(MainActivity.this, ParceirosActivity.class);
-                startActivity(intent);
-            }
+        //        Intent intent = new Intent(MainActivity.this, ParceirosActivity.class);
+          //      startActivity(intent);
+           }
         });
 
 

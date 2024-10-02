@@ -55,7 +55,7 @@ public class ClientesActivity extends AppCompatActivity {
                             public void onComplete(@NonNull com.google.android.gms.tasks.Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Login bem-sucedido, redirecione o usuário para a tela InicialClienteActivity
-                                    Intent intent = new Intent(ClientesActivity.this, InicialClienteActivity.class);
+                                    Intent intent = new Intent(ClientesActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
