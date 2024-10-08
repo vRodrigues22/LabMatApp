@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/black"
+    android:background="@color/white"
     android:fillViewport="true"
     android:gravity="center_vertical">
 
@@ -61,7 +61,7 @@
             android:layout_marginTop="20dp"
             android:text="E-mail"
             android:textColor="#03233C"
-            android:textSize="16sp" />
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/edt_email2"
@@ -85,7 +85,7 @@
             android:layout_marginTop="16dp"
             android:text="Senha"
             android:textColor="#03233C"
-            android:textSize="16sp" />
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/edt_senha2"
@@ -113,8 +113,8 @@
 
         <Button
             android:id="@+id/entrarButtoncliente"
-            android:layout_width="230dp"
-            android:layout_height="45dp"
+            android:layout_width="321dp"
+            android:layout_height="61dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:text="Entrar" />
@@ -125,7 +125,7 @@
             android:layout_height="42dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="60dp"
-            android:text="Cadastre-se"
+            android:text="Fazer Cadastro"
             android:visibility="visible"
             tools:visibility="visible" />
 

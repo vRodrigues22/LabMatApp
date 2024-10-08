@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:gravity="center_vertical"
-    android:background= "@color/black">
+    android:background= "@color/white">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -16,15 +16,25 @@
     android:layout_gravity="center_vertical|center_horizontal"
     tools:context=".activities.CadastroActivity">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/labmatttt" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-55dp"
         android:fontFamily="sans-serif-black"
-        android:textColor="@color/white"
-        android:text="LabMat"
-        android:textSize="48sp" />
+        android:text="              LabMat"
+        android:textColor="#03233C"
+        android:textSize="40sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,19 +42,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:text="Crie sua conta"
         android:textSize="24sp" />
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/white"
-        android:layout_marginTop="8dp"
-        android:text="-----------------------------------------------------------"
-        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView9"
@@ -53,8 +54,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:text="Nome"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/edt_nome"
@@ -62,23 +63,23 @@
         android:layout_height="61dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
-        android:drawableStart="@drawable/ic_user_on"
+        android:background="#FFFFFF"
+        android:drawableStart="@drawable/ic_perfil_on"
         android:drawablePadding="16dp"
         android:hint="Ex Ana Maria"
         android:inputType="text"
         android:padding="16dp"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/white"
         android:layout_marginTop="20dp"
         android:text="Email"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/edt_email"
@@ -86,23 +87,23 @@
         android:layout_height="68dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:drawableStart="@drawable/ic_email_red"
-        android:background= "@color/white"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ic_email"
         android:drawablePadding="16dp"
         android:hint="Digite seu E-mail"
         android:inputType="textEmailAddress"
         android:padding="16dp"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/white"
         android:layout_marginTop="16dp"
         android:text="Senha"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/edt_senha"
@@ -110,36 +111,37 @@
         android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:drawableStart="@drawable/ic_password"
-        android:background= "@color/white"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ic_email"
         android:drawablePadding="16dp"
         android:hint="Digite sua senha"
         android:inputType="textPassword"
         android:padding="16dp"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/white"
         android:layout_marginTop="16dp"
-        android:text="Confirmação de senha"
-        android:textSize="16sp" />
+        android:text="Confirme sua Senha"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
     <EditText
         android:id="@+id/edt_senhaconfirme"
         android:layout_width="339dp"
         android:layout_height="53dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:background= "@color/white"
+        android:background="#D0CECE"
         android:drawableStart="@drawable/ic_password"
         android:drawablePadding="16dp"
         android:hint="Confirme sua senha"
         android:inputType="textPassword"
         android:padding="16dp"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/cadastroButtoncliente"
