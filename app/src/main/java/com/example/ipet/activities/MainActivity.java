@@ -9,10 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ipet.R;
 
-
 public class MainActivity extends AppCompatActivity {
-
-
 
     private Button buttonClientes;
     private Button buttonParceiros;
@@ -20,10 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
 
         buttonClientes = findViewById(R.id.buttonclientes);
         buttonParceiros = findViewById(R.id.button2);

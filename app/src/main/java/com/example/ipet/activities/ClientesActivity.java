@@ -2,6 +2,8 @@ package com.example.ipet.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +24,7 @@ public class ClientesActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextSenha;
     private Button loginButton;
-    private Button btnclientecadastro;
+    private TextView clientecadastro;
     private TextView esqueceuSenhaTextView;
 
     private FirebaseAuth mAuth;
@@ -30,6 +32,7 @@ public class ClientesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        enableEdgeToEdge();
         setContentView(R.layout.activity_clientes);
 
         // Inicialize o Firebase Authentication
@@ -38,7 +41,7 @@ public class ClientesActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.edt_email2);
         editTextSenha = findViewById(R.id.edt_senha2);
         loginButton = findViewById(R.id.entrarButtoncliente);
-        btnclientecadastro = findViewById(R.id.buttoncadastrocliente);
+        clientecadastro = findViewById(R.id.textView5);
         esqueceuSenhaTextView = findViewById(R.id.esqueceuSenhaTextView);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +70,7 @@ public class ClientesActivity extends AppCompatActivity {
             }
         });
 
-        btnclientecadastro.setOnClickListener(new View.OnClickListener() {
+        clientecadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ClientesActivity.this, CadastroActivity.class);
@@ -102,5 +105,19 @@ public class ClientesActivity extends AppCompatActivity {
                 }
             }
         });
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent telaTemp = new Intent(ClientesActivity.this, MainActivity.class);
+
+                startActivity(telaTemp);
+                finish();
+            }
+        }, 5400000); // Atraso de 5400000 milissegundos (90 segundos ou 1:30)
+
+    }
+
+    private void enableEdgeToEdge() {
     }
 }

@@ -9,6 +9,28 @@
     android:background= "@color/white">
 
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="991dp"
+        android:layout_height="1401dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/planodefundo" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="182dp"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonclientes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.516"
+        app:srcCompat="@drawable/common_google_signin_btn_text_light_normal_background" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -30,7 +52,7 @@
         android:id="@+id/buttonclientes"
         android:layout_width="279dp"
         android:layout_height="65dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="128dp"
         android:text="Nível 1"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,9 +68,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonclientes"
-        app:layout_constraintVertical_bias="0.166"
+        app:layout_constraintVertical_bias="0.165"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
@@ -59,20 +82,36 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonclientes"
-        app:layout_constraintVertical_bias="0.489"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.336"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="142dp"
+        android:layout_height="122dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light_normal_background" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="415dp"
         android:layout_height="270dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231"
         app:srcCompat="@drawable/labmatttt" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
