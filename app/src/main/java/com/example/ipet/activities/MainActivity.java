@@ -12,14 +12,15 @@ import com.example.ipet.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonClientes;
-    private Button buttonParceiros;
+    private Button buttonLabirinto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         buttonClientes = findViewById(R.id.buttonclientes);
-        buttonParceiros = findViewById(R.id.button2);
+        buttonLabirinto = findViewById(R.id.button2);
 
         buttonClientes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonParceiros.setOnClickListener(new View.OnClickListener() {
+        buttonLabirinto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Direcionar para a atividade ParceirosActivity
-        //        Intent intent = new Intent(MainActivity.this, ParceirosActivity.class);
-          //      startActivity(intent);
+                 // Direcionar para a pagina LabirintoActivity
+                Intent intent = new Intent(MainActivity.this, LabirintoActivity.class);
+                startActivity(intent);
            }
         });
 
