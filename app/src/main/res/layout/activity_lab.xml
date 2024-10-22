@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="55dp">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_seta_direita"
+            tools:layout_editor_absoluteX="58dp"
+            tools:layout_editor_absoluteY="98dp" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView30"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="476dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.208"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView89"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="476dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.344"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView52"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="476dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView90"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="476dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.758"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView76"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="412dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.591"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView78"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="412dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.664"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView51"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="132dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView44"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="296dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.667"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView38"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="236dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.382"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView68"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="236dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView58"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="320dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.188"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="348dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.591"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView57"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView61"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="236dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.667"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView42"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="184dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.688"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView56"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="348dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.688"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView27"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView55"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="348dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.844"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reta" />
+
+        <ImageView
+            android:id="@+id/imageView26"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView28"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView26"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView35"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="132dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.735"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView67"
+            android:layout_width="8dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.736"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView69"
+            android:layout_width="8dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="224dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.736"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView59"
+            android:layout_width="6dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="184dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.429"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView29"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView28"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView49"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView28"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView84"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="96dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.316"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView28"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView86"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="108dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView28"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView85"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.316"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView28"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView82"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="140dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView28"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView87"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="168dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView28"
+            app:srcCompat="@drawable/retaaa" />
+
+        <ImageView
+            android:id="@+id/imageView39"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/retaaa"
+            tools:layout_editor_absoluteY="209dp" />
+
+        <ImageView
+            android:id="@+id/imageView48"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/retaaa"
+            tools:layout_editor_absoluteY="286dp" />
+
+        <ImageView
+            android:id="@+id/imageView50"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/retaaa"
+            tools:layout_editor_absoluteY="355dp" />
+
+        <ImageView
+            android:id="@+id/imageView83"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/retaaa"
+            tools:layout_editor_absoluteY="408dp" />
+
+        <ImageView
+            android:id="@+id/imageView39"
+            android:layout_width="7dp"
+            android:layout_height="77dp"
+            app:srcCompat="@drawable/retaaa"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="133dp" />
+
+        <ImageView
+            android:id="@+id/imageView43"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            app:srcCompat="@drawable/reta"
+            tools:layout_editor_absoluteX="117dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <ImageView
+            android:id="@+id/imageView73"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            app:srcCompat="@drawable/reta"
+            tools:layout_editor_absoluteX="165dp"
+            tools:layout_editor_absoluteY="296dp" />
+
+        <ImageView
+            android:id="@+id/imageView74"
+            android:layout_width="71dp"
+            android:layout_height="6dp"
+            app:srcCompat="@drawable/reta"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="296dp" />
+
+        <ImageView
+            android:id="@+id/imageView91"
+            android:layout_width="29dp"
+            android:layout_height="28dp"
+            app:srcCompat="@drawable/ic_home_on"
+            tools:layout_editor_absoluteX="210dp"
+            tools:layout_editor_absoluteY="476dp" />
+
+        <ImageView
+            android:id="@+id/imageView92"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            app:srcCompat="@drawable/character_icon"
+            tools:layout_editor_absoluteX="88dp"
+            tools:layout_editor_absoluteY="90dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Baixo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cima"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.816" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esquerda"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.653"
+            app:layout_constraintStart_toEndOf="@+id/button6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.898" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esquerda"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.898" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_seta_direita"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="98dp" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="71dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reta" />
+
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="71dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reta" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="71dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reta" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="71dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reta" />
+
+    <ImageView
+        android:id="@+id/imageView33"
+        android:layout_width="71dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reta" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="71dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reta" />
+
+    <ImageView
+        android:id="@+id/imageView34"
+        android:layout_width="71dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.667"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reta" />
+
+    <ImageView
+        android:id="@+id/imageView27"
+        android:layout_width="71dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reta" />
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="7dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/retaaa" />
+
+    <ImageView
+        android:id="@+id/imageView28"
+        android:layout_width="7dp"
+        android:layout_height="77dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView26"
+        app:srcCompat="@drawable/retaaa" />
+
+    <ImageView
+        android:id="@+id/imageView35"
+        android:layout_width="7dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/retaaa" />
+
+    <ImageView
+        android:id="@+id/imageView29"
+        android:layout_width="7dp"
+        android:layout_height="77dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView28"
+        app:srcCompat="@drawable/retaaa" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

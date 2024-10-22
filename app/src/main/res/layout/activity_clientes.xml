@@ -124,8 +124,10 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:text="                Ainda não tem uma conta? Cadastre-se"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 </ScrollView>

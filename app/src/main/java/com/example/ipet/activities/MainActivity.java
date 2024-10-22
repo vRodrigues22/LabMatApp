@@ -37,15 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, LabirintoActivity.class);
                 startActivity(intent);
            }
-        });
-
-
-
-
-
-
-
-
+        });//
 
 
     }
