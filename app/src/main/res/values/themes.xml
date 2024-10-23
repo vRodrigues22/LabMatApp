@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.Ipet" parent="Base.Theme.Ipet" />
+
+    <style name="Theme.Ipet.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Ipet.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Ipet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
