@@ -24,6 +24,7 @@ public class entrada_activity extends AppCompatActivity {
                 finish();
             }
         }, 3000); // Atraso de 3000 milissegundos (3 segundos)
+        return MainActivity;
     }
 
     private void enableEdgeToEdge() {

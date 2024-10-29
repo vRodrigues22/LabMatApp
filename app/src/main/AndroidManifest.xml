@@ -26,6 +26,12 @@
             android:name=".activities.CadastroActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.calculo_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.celula_activity"
+            android:exported="false" />
+        <activity
             android:name=".activities.entrada_activity"
             android:exported="true">
             <intent-filter>
