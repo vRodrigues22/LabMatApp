@@ -98,6 +98,5 @@ public class CadastroActivity extends AppCompatActivity {
                         });
             }
         });
-        return 0;
     }
 }

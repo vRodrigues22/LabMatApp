@@ -115,9 +115,7 @@ public class ClientesActivity extends AppCompatActivity {
                 finish();
             }
         }, 5400000); // Atraso de 5400000 milissegundos (90 segundos ou 1:30)
-
-        return 0;
-    }
+            }
 
     private void enableEdgeToEdge() {
     }

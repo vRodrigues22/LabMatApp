@@ -5,11 +5,12 @@ plugins {
 
 android {
     namespace 'com.example.ipet'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.ipet"
         minSdk 19
+        //noinspection ExpiredTargetSdkVersion
         targetSdk 33
         versionCode 1
         versionName "1.0"
