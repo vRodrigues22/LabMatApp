@@ -12,7 +12,8 @@ import com.example.ipet.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonClientes;
-
+    private Button perfil;
+    private Button daily;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +21,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonClientes = findViewById(R.id.buttonclientes);
+        perfil = findViewById(R.id.perfil);
+        daily = findViewById(R.id.dailyButton);
 
         buttonClientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ClientesActivity.class);
+                Intent intent = new Intent(MainActivity.this, LabyrinthActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View V){
+                Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        daily.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View V){
+                Intent intent = new Intent(MainActivity.this, DailyActivity.class);
                 startActivity(intent);
             }
         });

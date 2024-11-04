@@ -15,6 +15,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -23,6 +27,7 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText edt_email;
     private EditText edt_senha;
     private EditText edt_senhaconfirme;
+    private FirebaseFirestore db;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +35,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
 
-        //VERIFICAÇÃO / AUTENTICAÇÃO
+        db = FirebaseFirestore.getInstance();
 
         btncadastro = findViewById(R.id.cadastroButtoncliente);
         edt_email = findViewById(R.id.edt_email);
@@ -41,6 +46,7 @@ public class CadastroActivity extends AppCompatActivity {
         btncadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String nome = edt_nome.getText().toString();
                 final String email = edt_email.getText().toString();
                 final String senha = edt_senha.getText().toString();
                 String senhaConfirme = edt_senhaconfirme.getText().toString();
@@ -65,10 +71,24 @@ public class CadastroActivity extends AppCompatActivity {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(CadastroActivity.this, "Registro bem-sucedido", Toast.LENGTH_SHORT).show();
 
-                                    //  redirecionar o usuário para a tela de login ou qualquer outra tela apropriada aqui
-                                    Intent intent = new Intent(CadastroActivity.this, ClientesActivity.class);
-                                    startActivity(intent);
-                                    finish(); // Encerrar a atividade atual, se necessário
+                                    Map<String, Object> userData = new HashMap<>();
+                                    userData.put("nome", nome);
+                                    userData.put("email", email);
+                                    userData.put("pontuacao", 0);
+
+                                    // Salvar dados do usuário no Firestore
+                                    db.collection("usuarios").document(user.getUid())
+                                            .set(userData)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    Toast.makeText(CadastroActivity.this, "Usuário registrado no Firestore", Toast.LENGTH_SHORT).show();
+                                                    // Redirecionar para a tela de ClientesActivity
+                                                    Intent intent = new Intent(CadastroActivity.this, ClientesActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+                                            });
                                 } else {
                                     // O registro falhou, obter o código de erro
                                     try {

@@ -41,6 +41,15 @@
         <activity
             android:name=".activities.MainActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.LabyrinthActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.PerfilActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.DailyActivity"
+            android:exported="false"/>
 
     </application>
 

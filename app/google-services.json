@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "534660525846",
-    "project_id": "ipet-afaac",
-    "storage_bucket": "ipet-afaac.appspot.com"
+    "project_number": "944500938102",
+    "project_id": "ipet-a935e",
+    "storage_bucket": "ipet-a935e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:534660525846:android:553563cd118f28d807aa37",
+        "mobilesdk_app_id": "1:944500938102:android:861feb6f4c9b0d09671657",
         "android_client_info": {
           "package_name": "com.example.ipet"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCJrv5KpF6fatYZKibq5Z98ENqqXYza4_I"
+          "current_key": "AIzaSyBGUlU9r3YMPF8XHspD6hcHKsHG29ekP4s"
         }
       ],
       "services": {
