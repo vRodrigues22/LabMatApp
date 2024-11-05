@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ipet.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -28,10 +30,13 @@ public class LabyrinthActivity extends AppCompatActivity {
     private int currentEquationIndex = 0;
     private int score = 0;
     private int currentPlayerPosition = 0;
+    private static final int TOTAL_POSITIONS = 25;
+    private static final int ADVANCE_STEPS = 3;
     private List<String> equations = new ArrayList<>();
     private List<String> hints = new ArrayList<>();
     private List<Integer> answers = new ArrayList<>(); // respostas corretas para validação
     private FirebaseFirestore db;
+    private DocumentReference documentReference;
     private FirebaseUser user;
 
     @Override
@@ -61,11 +66,17 @@ public class LabyrinthActivity extends AppCompatActivity {
         answers.add(30);
         hints.add("Dica: Simples divisão.");
 
+        equations.add("Equação 5: 72 ÷ 8");
+        answers.add(9);
+        hints.add("Dica: Divida 72 em 8 partes iguais.");
+
         equations.add("Equação 5: 3x + 9 = 15");
         answers.add(2);
         hints.add("Dica: Resolva para x isolando a variável.");
 
         updateQuestion();
+
+        updatePlayerPosition(currentPlayerPosition, R.drawable.square_player);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,14 +90,22 @@ public class LabyrinthActivity extends AppCompatActivity {
                 // Verificar resposta
                 int answer = Integer.parseInt(userAnswer);
                 if (answer == answers.get(currentEquationIndex)) {
-                    score++;
+                    score++; // Incrementa a pontuação
                     Toast.makeText(LabyrinthActivity.this, "Correto! Pontuação: " + score, Toast.LENGTH_SHORT).show();
                     movePlayer();
                     currentEquationIndex++;
                     if (currentEquationIndex < equations.size()) {
                         updateQuestion();
                     } else {
+                        // Atualiza o scoreText antes de salvar
+                        scoreText.setText("Pontuação: " + score);
+                        // Aqui chamamos saveScoreToFirestore e emitimos o aviso
                         saveScoreToFirestore();
+                        Toast.makeText(LabyrinthActivity.this, "Você completou a Etapa 1! Pontuação total: " + score, Toast.LENGTH_LONG).show();
+                        // Bloqueia o botão de enviar resposta
+                        submitButton.setEnabled(false);
+                        hintButton.setEnabled(false);
+                        answerInput.setEnabled(false);
                     }
                 } else {
                     Toast.makeText(LabyrinthActivity.this, "Resposta incorreta, tente novamente", Toast.LENGTH_SHORT).show();
@@ -104,22 +123,61 @@ public class LabyrinthActivity extends AppCompatActivity {
     }
 
     private void movePlayer() {
-        ImageView previousPosition = findViewById(getResources().getIdentifier("mazePosition" + currentPlayerPosition, "id", getPackageName()));
-        previousPosition.setImageResource(R.drawable.cell_image); // Volta ao estado da célula padrão
-
-        currentPlayerPosition++;
-        if (currentPlayerPosition >= 25) {
-            currentPlayerPosition = 24;
+        if (currentPlayerPosition >= TOTAL_POSITIONS - 1) {
+            // Aqui emite o aviso quando o jogador chega ao final
             Toast.makeText(this, "Parabéns! Você completou o labirinto!", Toast.LENGTH_LONG).show();
-            saveScoreToFirestore(); // Salva pontuação quando o labirinto é completado
+            saveScoreToFirestore();
             return;
         }
 
-        // Atualiza a imagem da nova posição com o jogador
-        ImageView currentPosition = findViewById(getResources().getIdentifier("mazePosition" + currentPlayerPosition, "id", getPackageName()));
-        currentPosition.setImageResource(R.drawable.square_player); // Exibe o jogador na nova posição
+        // Atualiza a posição anterior do jogador com a imagem da célula vazia
+        updatePlayerPosition(currentPlayerPosition, R.drawable.cell_image);
+
+        int row = currentPlayerPosition / 5; // Linha atual
+        int nextPosition;
+
+        // Define o movimento com base na linha atual (zigue-zague)
+        if (row % 2 == 0) {
+            // Em linhas pares, mova para a direita
+            nextPosition = currentPlayerPosition + ADVANCE_STEPS;
+        } else {
+            // Em linhas ímpares, mova para a esquerda
+            nextPosition = currentPlayerPosition - ADVANCE_STEPS;
+        }
+
+        // Verifica se atingimos o fim da linha e passa para a próxima linha, se necessário
+        if ((row % 2 == 0 && nextPosition % 5 == 0) || (row % 2 != 0 && nextPosition < row * 5)) {
+            nextPosition = currentPlayerPosition + (5 - (currentPlayerPosition % 5));
+        }
+
+        // Ajusta a posição para garantir que o jogador não ultrapasse os limites do labirinto
+        if (nextPosition >= TOTAL_POSITIONS) {
+            nextPosition = TOTAL_POSITIONS - 1;
+        } else if (nextPosition < 0) {
+            nextPosition = 0;
+        }
+
+        // Atualiza a nova posição do jogador com a imagem do jogador
+        currentPlayerPosition = nextPosition;
+        updatePlayerPosition(currentPlayerPosition, R.drawable.square_player);
     }
 
+    private void updatePlayerPosition(int position, int drawableId) {
+        int row = position / 5; // 5 colunas
+        int col = position % 5;
+
+        if (row % 2 != 0) {
+            col = 4 - col;
+        }
+
+        String cellId = "mazePosition" + (row * 5 + col);
+        int resID = getResources().getIdentifier(cellId, "id", getPackageName());
+
+        ImageView cell = findViewById(resID);
+        if (cell != null) {
+            cell.setImageResource(drawableId);
+        }
+    }
 
     // Atualiza a questão e a dica
     private void updateQuestion() {
@@ -130,17 +188,40 @@ public class LabyrinthActivity extends AppCompatActivity {
 
     // Salva a pontuação no Firestore
     private void saveScoreToFirestore() {
-        Map<String, Object> update = new HashMap<>();
-        update.put("pontuacao", score);
-
+        // Primeiro, vamos recuperar a pontuação atual do usuário
         db.collection("usuarios").document(user.getUid())
-                .update(update)
+                .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(LabyrinthActivity.this, "Pontuação salva com sucesso!", Toast.LENGTH_SHORT).show();
+                        DocumentSnapshot document = task.getResult();
+                        int currentScore = 0;
+
+                        // Verifica se o documento existe e se a pontuação está presente
+                        if (document.exists() && document.contains("pontuacao")) {
+                            currentScore = document.getLong("pontuacao").intValue(); // Obtém a pontuação atual
+                        }
+
+                        // Soma a pontuação atual com a nova pontuação
+                        int newScore = currentScore + score;
+
+                        // Prepara o novo valor para atualizar no Firestore
+                        Map<String, Object> update = new HashMap<>();
+                        update.put("pontuacao", newScore);
+
+                        // Atualiza o Firestore com a nova pontuação
+                        db.collection("usuarios").document(user.getUid())
+                                .update(update)
+                                .addOnCompleteListener(updateTask -> {
+                                    if (updateTask.isSuccessful()) {
+                                        Toast.makeText(LabyrinthActivity.this, "Pontuação salva com sucesso!", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(LabyrinthActivity.this, "Erro ao salvar pontuação", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                     } else {
-                        Toast.makeText(LabyrinthActivity.this, "Erro ao salvar pontuação", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LabyrinthActivity.this, "Erro ao recuperar pontuação atual", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
 }

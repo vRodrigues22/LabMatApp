@@ -16,6 +16,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/labyrinthImage"
+        android:layout_width="352dp"
+        android:layout_height="275dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/labirynth_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scoreText" />
+
     <GridLayout
         android:id="@+id/labyrinthGrid"
         android:layout_width="wrap_content"
@@ -27,69 +40,253 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/scoreText">
 
+
         <ImageView
             android:id="@+id/mazePosition0"
-            android:layout_width="371dp"
-            android:layout_height="325dp"
-            android:layout_row="0"
-            android:layout_column="0"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/cell_image" />
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/mazePosition1"
-            android:layout_width="46dp"
-            android:layout_height="55dp"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_margin="7dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/square_player" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition5"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition6"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition7"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition8"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition9"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition10"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition11"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition12"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition13"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition14"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition15"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition16"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition17"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition18"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/mazePosition19"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cell_image"
+            android:visibility="visible"
+            tools:visibility="visible" />
 
     </GridLayout>
-
-
-    <TextView
-        android:id="@+id/equationText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labyrinthGrid" />
-
-    <EditText
-        android:id="@+id/answerInput"
-        android:layout_width="337dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="20dp"
-        android:hint="Digite sua resposta"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/equationText" />
 
     <Button
         android:id="@+id/calcbtn"
         android:layout_width="350dp"
         android:layout_height="58dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="Responder"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/answerInput" />
+
+    <TextView
+        android:id="@+id/equationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labyrinthGrid" />
 
     <Button
         android:id="@+id/hintButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="608dp"
+        android:layout_marginTop="560dp"
         android:layout_marginEnd="160dp"
         android:text="Dica"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/answerInput"
+        android:layout_width="337dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="32dp"
+        android:hint="Digite sua resposta"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/equationText" />
 
     <TextView
         android:id="@+id/hintText"
@@ -101,4 +298,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hintButton" />
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/layer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="labyrinthImage" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
