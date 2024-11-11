@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +34,6 @@ public class LabyrinthActivity extends AppCompatActivity {
     private List<String> hints = new ArrayList<>();
     private List<Integer> answers = new ArrayList<>(); // respostas corretas para validação
     private FirebaseFirestore db;
-    private DocumentReference documentReference;
     private FirebaseUser user;
 
     @Override
@@ -63,9 +63,7 @@ public class LabyrinthActivity extends AppCompatActivity {
         answers.add(9);
         hints.add("Dica: Divida 72 em 8 partes iguais.");
 
-
         updateQuestion();
-
         updatePlayerPosition(currentPlayerPosition, R.drawable.square_player);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -80,10 +78,22 @@ public class LabyrinthActivity extends AppCompatActivity {
                 // Verificar resposta
                 int answer = Integer.parseInt(userAnswer);
                 if (answer == answers.get(currentEquationIndex)) {
-                    score+= 10; // Incrementa a pontuação
+                    score += 10; // Incrementa a pontuação
                     Toast.makeText(LabyrinthActivity.this, "Correto! Pontuação: " + score, Toast.LENGTH_SHORT).show();
                     movePlayer();
                     currentEquationIndex++;
+
+                    // Incrementar contas resolvidas no Firestore
+                    DocumentReference userRef = db.collection("usuarios").document(user.getUid());
+                    userRef.update("contasResolvidas", FieldValue.increment(1))
+                            .addOnSuccessListener(aVoid -> {
+                                // Sucesso ao atualizar contas resolvidas
+                            })
+                            .addOnFailureListener(e -> {
+                                // Erro ao atualizar contas resolvidas
+                                Toast.makeText(LabyrinthActivity.this, "Erro ao salvar progresso", Toast.LENGTH_SHORT).show();
+                            });
+
                     if (currentEquationIndex < equations.size()) {
                         updateQuestion();
                     } else {
@@ -169,14 +179,12 @@ public class LabyrinthActivity extends AppCompatActivity {
         }
     }
 
-    // Atualiza a questão e a dica
     private void updateQuestion() {
         equationText.setText(equations.get(currentEquationIndex));
         hintText.setText(""); // Limpa a dica ao mostrar uma nova questão
         scoreText.setText("Pontuação: " + score);
     }
 
-    // Salva a pontuação no Firestore
     private void saveScoreToFirestore() {
         // Primeiro, vamos recuperar a pontuação atual do usuário
         db.collection("usuarios").document(user.getUid())
@@ -213,5 +221,4 @@ public class LabyrinthActivity extends AppCompatActivity {
                     }
                 });
     }
-
 }
