@@ -1,5 +1,6 @@
 package com.example.ipet.activities;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ipet.R;
@@ -32,6 +34,7 @@ public class PerfilActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
     private DocumentReference userRef;
+    private Button btnexcluirperfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class PerfilActivity extends AppCompatActivity {
         edtSenha = findViewById(R.id.senha);
         txtPontos = findViewById(R.id.textView6);  // Campo para exibir os pontos do usuário
         btnAtualizar = findViewById(R.id.update);
+        btnexcluirperfil = findViewById(R.id.btnExcluirPerfil);
 
         // Carregar dados do usuário
         carregarDadosUsuario();
@@ -55,6 +59,13 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 atualizarDadosUsuario();
+            }
+        });
+
+        btnexcluirperfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View v) {
+                mostrarDialogoConfirmacao();
             }
         });
     }
@@ -126,4 +137,50 @@ public class PerfilActivity extends AppCompatActivity {
                     });
         }
     }
+
+    private void excluirPerfil() {
+        // 1. Excluir dados do Firestore
+        db.collection("usuarios").document(currentUser.getUid())
+                .delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // 2. Excluir conta do Firebase Authentication
+                            currentUser.delete()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(PerfilActivity.this, "Perfil excluído com sucesso", Toast.LENGTH_SHORT).show();
+                                                // 3. Encerrar a activity e voltar para a tela de login
+                                                finish();
+                                                // Você pode adicionar aqui a intenção para voltar à tela de login
+                                                // startActivity(new Intent(PerfilActivity.this, LoginActivity.class));
+                                            } else {
+                                                Toast.makeText(PerfilActivity.this, "Erro ao excluir perfil", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                        } else {
+                            Toast.makeText(PerfilActivity.this, "Erro ao excluir dados do perfil", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void mostrarDialogoConfirmacao() {
+        new AlertDialog.Builder(this)
+                .setTitle("Confirmar Exclusão")
+                .setMessage("Tem certeza que deseja excluir sua conta? Esta ação é irreversível.")
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        excluirPerfil(); // Chama excluirPerfil() se o usuário confirmar
+                    }
+                })
+                .setNegativeButton("Não", null) // Não faz nada se o usuário cancelar
+                .show();
+    }
+
 }

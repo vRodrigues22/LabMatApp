@@ -7,7 +7,6 @@
     android:background="@color/white"
     tools:context=".activities.MainActivity">
 
-
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="991dp"
@@ -26,7 +25,7 @@
         android:id="@+id/imageView11"
         android:layout_width="182dp"
         android:layout_height="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonclientes"
+        app:layout_constraintBottom_toTopOf="@+id/buttonivel1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +51,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/buttonclientes"
+        android:id="@+id/buttonivel1"
         android:layout_width="279dp"
         android:layout_height="65dp"
         android:layout_marginTop="124dp"
@@ -64,7 +63,7 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonnivel2"
         android:layout_width="273dp"
         android:layout_height="66dp"
         android:text="Nível 2"
@@ -73,12 +72,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonclientes"
+        app:layout_constraintTop_toBottomOf="@+id/buttonivel1"
         app:layout_constraintVertical_bias="0.165"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonnivel3"
         android:layout_width="273dp"
         android:layout_height="66dp"
         android:text="Nível 3"
@@ -87,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonnivel2"
         app:layout_constraintVertical_bias="0.336"
         app:layout_constraintVertical_chainStyle="packed" />
 
@@ -140,14 +139,12 @@
 
     <Button
         android:id="@+id/dailyButton"
-        android:layout_width="94dp"
-        android:layout_height="49dp"
+        android:layout_width="87dp"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="296dp"
-        android:autoText="false"
-        android:background="#FFFFFF"
         android:textColorLink="#00FFFFFF"
-        app:backgroundTint="#FFFFFF"
+        app:backgroundTint="#65488E"
         app:icon="@drawable/task_ddd"
         app:iconSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"

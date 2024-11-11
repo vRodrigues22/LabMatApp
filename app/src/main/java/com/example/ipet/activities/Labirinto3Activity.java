@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LabyrinthActivity extends AppCompatActivity {
+public class Labirinto3Activity extends AppCompatActivity{
 
     private TextView equationText, scoreText, hintText;
     private EditText answerInput;
@@ -28,7 +28,7 @@ public class LabyrinthActivity extends AppCompatActivity {
     private int score = 0;
     private int currentPlayerPosition = 0;
     private static final int TOTAL_POSITIONS = 25;
-    private static final int ADVANCE_STEPS = 6;
+    private static final int ADVANCE_STEPS = 2;
     private List<String> equations = new ArrayList<>();
     private List<String> hints = new ArrayList<>();
     private List<Integer> answers = new ArrayList<>(); // respostas corretas para validação
@@ -39,7 +39,7 @@ public class LabyrinthActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_labyrinth);
+        setContentView(R.layout.activity_labirinto2);
 
         equationText = findViewById(R.id.equationText);
         scoreText = findViewById(R.id.scoreText);
@@ -51,18 +51,33 @@ public class LabyrinthActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        equations.add("Equação : 108 / 9 + 5²");
-        answers.add(37);
-        hints.add("Dica: Resolva a potência primeiro, depois a divisão e soma.");
+        equations.add("Equação :(6² + 24) ÷ 3");
+        answers.add(16);
+        hints.add("Dica: Calcule a potência primeiro, some, depois divida.");
 
-        equations.add("Equação : 12³");
-        answers.add(1728);
-        hints.add("Dica: 12 elevado a 3 é 12 multiplicado por si mesmo três vezes.");
+        equations.add("Equação : 200 ÷ 4 + 30");
+        answers.add(80);
+        hints.add("Dica: Divida e depois some.");
 
-        equations.add("Equação : 72 ÷ 8");
-        answers.add(9);
-        hints.add("Dica: Divida 72 em 8 partes iguais.");
+        equations.add("Equação : 5³ - 7 * 3");
+        answers.add(98);
+        hints.add("Dica: Potência primeiro, depois a multiplicação e subtração.");
 
+        equations.add("Equação :  (20 + 10) * 2");
+        answers.add(60);
+        hints.add("Dica: Resolva o parêntese e depois multiplique.");
+
+        equations.add("Equação :  18x - 9 = 63");
+        answers.add(4);
+        hints.add("Dica: Isole x para resolver.");
+
+        equations.add("Equação :  90 ÷ (3 + 6)");
+        answers.add(10);
+        hints.add("Dica: Resolva o parêntese primeiro, depois divida.");
+
+        equations.add("Equação : (12 + 8) * (3² - 5)");
+        answers.add(80);
+        hints.add("Dica: Siga a ordem dos parênteses, depois calcule a potência e finalize com as operações.");
 
         updateQuestion();
 
@@ -73,7 +88,7 @@ public class LabyrinthActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userAnswer = answerInput.getText().toString();
                 if (userAnswer.isEmpty()) {
-                    Toast.makeText(LabyrinthActivity.this, "Por favor, insira uma resposta", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Labirinto3Activity.this, "Por favor, insira uma resposta", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -81,7 +96,7 @@ public class LabyrinthActivity extends AppCompatActivity {
                 int answer = Integer.parseInt(userAnswer);
                 if (answer == answers.get(currentEquationIndex)) {
                     score+= 10; // Incrementa a pontuação
-                    Toast.makeText(LabyrinthActivity.this, "Correto! Pontuação: " + score, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Labirinto3Activity.this, "Correto! Pontuação: " + score, Toast.LENGTH_SHORT).show();
                     movePlayer();
                     currentEquationIndex++;
                     if (currentEquationIndex < equations.size()) {
@@ -91,14 +106,14 @@ public class LabyrinthActivity extends AppCompatActivity {
                         scoreText.setText("Pontuação: " + score);
                         // Aqui chamamos saveScoreToFirestore e emitimos o aviso
                         saveScoreToFirestore();
-                        Toast.makeText(LabyrinthActivity.this, "Você completou a Etapa 1! Pontuação total: " + score, Toast.LENGTH_LONG).show();
+                        Toast.makeText(Labirinto3Activity.this, "Você completou a Etapa 1! Pontuação total: " + score, Toast.LENGTH_LONG).show();
                         // Bloqueia o botão de enviar resposta
                         submitButton.setEnabled(false);
                         hintButton.setEnabled(false);
                         answerInput.setEnabled(false);
                     }
                 } else {
-                    Toast.makeText(LabyrinthActivity.this, "Resposta incorreta, tente novamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Labirinto3Activity.this, "Resposta incorreta, tente novamente", Toast.LENGTH_SHORT).show();
                 }
                 answerInput.setText("");
             }
@@ -203,15 +218,14 @@ public class LabyrinthActivity extends AppCompatActivity {
                                 .update(update)
                                 .addOnCompleteListener(updateTask -> {
                                     if (updateTask.isSuccessful()) {
-                                        Toast.makeText(LabyrinthActivity.this, "Pontuação salva com sucesso!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Labirinto3Activity.this, "Pontuação salva com sucesso!", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(LabyrinthActivity.this, "Erro ao salvar pontuação", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Labirinto3Activity.this, "Erro ao salvar pontuação", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     } else {
-                        Toast.makeText(LabyrinthActivity.this, "Erro ao recuperar pontuação atual", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Labirinto3Activity.this, "Erro ao recuperar pontuação atual", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
-
 }
