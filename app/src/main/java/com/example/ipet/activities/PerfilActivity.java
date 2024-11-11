@@ -28,8 +28,7 @@ import java.util.Map;
 
 public class PerfilActivity extends AppCompatActivity {
     private EditText edtNome, edtEmail, edtSenha;
-    private TextView txtPontos;
-    private Button btnAtualizar;
+     private Button btnAtualizar;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
@@ -43,11 +42,9 @@ public class PerfilActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
         edtNome = findViewById(R.id.nome);
         edtEmail = findViewById(R.id.email);
         edtSenha = findViewById(R.id.senha);
-        txtPontos = findViewById(R.id.textView6);  // Campo para exibir os pontos do usuário
         btnAtualizar = findViewById(R.id.update);
         btnexcluirperfil = findViewById(R.id.btnExcluirPerfil);
 
@@ -84,8 +81,7 @@ public class PerfilActivity extends AppCompatActivity {
                                 if (document.exists()) {
                                     edtNome.setText(document.getString("nome"));
                                     edtEmail.setText(document.getString("email"));
-                                    txtPontos.setText("Pontos: " + document.getLong("pontuacao"));
-                                } else {
+                                    } else {
                                     Toast.makeText(PerfilActivity.this, "Usuário não encontrado", Toast.LENGTH_SHORT).show();
                                 }
                             } else {

@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         pausarsom = findViewById(R.id.pausarsom);
 
         // Inicializa o MediaPlayer com a música
-        mediaPlayer = MediaPlayer.create(this, R.raw.sua_musica);
+        mediaPlayer = MediaPlayer.create(this, R.raw.audio_lab);
 
-        // Configura o ícone para iniciar a música
+// Configura o ícone para iniciar a música
         iniciarsom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,17 +52,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Configura o ícone para parar a música
+// Configura o ícone para parar a música
         pausarsom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mediaPlayer.isPlaying()) {
                     mediaPlayer.pause();
-                    try {
-                        mediaPlayer.prepare();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    // Removido: try { mediaPlayer.prepare(); } catch (IOException e) { e.printStackTrace(); }
                 }
             }
         });

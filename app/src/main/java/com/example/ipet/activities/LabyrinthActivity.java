@@ -1,5 +1,6 @@
 package com.example.ipet.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -99,13 +100,21 @@ public class LabyrinthActivity extends AppCompatActivity {
                     } else {
                         // Atualiza o scoreText antes de salvar
                         scoreText.setText("Pontuação: " + score);
-                        // Aqui chamamos saveScoreToFirestore e emitimos o aviso
+
+                        // Salva a pontuação no Firestore
                         saveScoreToFirestore();
+
+                        // Exibe mensagem de conclusão
                         Toast.makeText(LabyrinthActivity.this, "Você completou a Etapa 1! Pontuação total: " + score, Toast.LENGTH_LONG).show();
+
                         // Bloqueia o botão de enviar resposta
                         submitButton.setEnabled(false);
                         hintButton.setEnabled(false);
                         answerInput.setEnabled(false);
+
+                        // Direciona para a próxima página (Labirinto2Activity)
+                        startActivity(new Intent(LabyrinthActivity.this, Labirinto2Activity.class));
+                        finish(); // Finaliza a atividade atual para não retornar ao nível 1
                     }
                 } else {
                     Toast.makeText(LabyrinthActivity.this, "Resposta incorreta, tente novamente", Toast.LENGTH_SHORT).show();
@@ -186,7 +195,6 @@ public class LabyrinthActivity extends AppCompatActivity {
     }
 
     private void saveScoreToFirestore() {
-        // Primeiro, vamos recuperar a pontuação atual do usuário
         db.collection("usuarios").document(user.getUid())
                 .get()
                 .addOnCompleteListener(task -> {
@@ -194,19 +202,15 @@ public class LabyrinthActivity extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         int currentScore = 0;
 
-                        // Verifica se o documento existe e se a pontuação está presente
                         if (document.exists() && document.contains("pontuacao")) {
-                            currentScore = document.getLong("pontuacao").intValue(); // Obtém a pontuação atual
+                            currentScore = document.getLong("pontuacao").intValue();
                         }
 
-                        // Soma a pontuação atual com a nova pontuação
                         int newScore = currentScore + score;
 
-                        // Prepara o novo valor para atualizar no Firestore
                         Map<String, Object> update = new HashMap<>();
                         update.put("pontuacao", newScore);
 
-                        // Atualiza o Firestore com a nova pontuação
                         db.collection("usuarios").document(user.getUid())
                                 .update(update)
                                 .addOnCompleteListener(updateTask -> {

@@ -39,7 +39,7 @@
         tools:visibility="invisible" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView6"
         android:layout_width="991dp"
         android:layout_height="1401dp"
         android:visibility="invisible"
