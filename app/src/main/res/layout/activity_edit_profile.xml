@@ -79,10 +79,11 @@
             android:id="@+id/update"
             android:layout_width="350dp"
             android:layout_height="58dp"
-            android:layout_marginTop="556dp"
-            android:text=" Atualizar Perfil"
+            android:layout_marginTop="500dp"
+            android:text=" Atualizar"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,12 +91,25 @@
             android:id="@+id/btnExcluirPerfil"
             android:layout_width="350dp"
             android:layout_height="58dp"
-            android:layout_marginTop="32dp"
-            android:text="Excluir Perfil"
+            android:layout_marginTop="16dp"
+            android:text="Excluir"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/update" />
+
+        <Button
+            android:id="@+id/btnSairPerfil"
+            android:layout_width="350dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="16dp"
+            android:text="Sair"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnExcluirPerfil" />
 
         <ImageView
             android:id="@+id/profileimage"
