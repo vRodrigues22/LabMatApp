@@ -6,8 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.ipet.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,11 +31,10 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText edt_senhaconfirme;
     private FirebaseFirestore db;
 
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
 
         db = FirebaseFirestore.getInstance();
 
@@ -58,7 +59,7 @@ public class CadastroActivity extends AppCompatActivity {
                     return;
                 }
 
-                //  instância do FirebaseAuth
+                // Instância do FirebaseAuth
                 FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
                 // Criar a conta de usuário usando o Firebase Authentication
@@ -71,19 +72,24 @@ public class CadastroActivity extends AppCompatActivity {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(CadastroActivity.this, "Registro bem-sucedido", Toast.LENGTH_SHORT).show();
 
+                                    // Define se o usuário é super usuário
+                                    boolean isSuperUser = email.equals("alunolc60@gmail.com");
+
+                                    // Criação dos dados do usuário
                                     Map<String, Object> userData = new HashMap<>();
                                     userData.put("nome", nome);
                                     userData.put("email", email);
                                     userData.put("pontuacao", 0);
+                                    userData.put("isSuperUser", isSuperUser); // Define se é super usuário
 
-                                    // Salvar dados do usuário no Firestore
+                                    // Salva os dados do usuário no Firestore
                                     db.collection("usuarios").document(user.getUid())
                                             .set(userData)
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     Toast.makeText(CadastroActivity.this, "Usuário registrado no Firestore", Toast.LENGTH_SHORT).show();
-                                                    // Redirecionar para a tela de ClientesActivity
+                                                    // Redireciona para a tela de login (ClientesActivity)
                                                     Intent intent = new Intent(CadastroActivity.this, ClientesActivity.class);
                                                     startActivity(intent);
                                                     finish();
@@ -95,7 +101,7 @@ public class CadastroActivity extends AppCompatActivity {
                                         throw task.getException();
                                     } catch (FirebaseAuthException e) {
                                         String errorCode = e.getErrorCode();
-
+                                        // Mensagens de erro específicas para falhas no cadastro
                                         switch (errorCode) {
                                             case "ERROR_INVALID_EMAIL":
                                                 Toast.makeText(CadastroActivity.this, "Endereço de e-mail inválido", Toast.LENGTH_SHORT).show();

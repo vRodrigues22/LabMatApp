@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textEquacao" type="id" />
+    <item name="textResposta" type="id" />
+    <item name="textDica" type="id" />
+</resources>

@@ -17,15 +17,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ipet"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activities.EquacaoviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TurmaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HomeProfessorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Equacoes"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivity$Equacoes"
+            android:exported="false" />
         <activity
             android:name=".activities.ProgressoActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.CadastroActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.entrada_activity"
             android:exported="true">
@@ -43,22 +55,19 @@
             android:exported="false" />
         <activity
             android:name=".activities.LabyrinthActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.PerfilActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.DailyActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".activities.Labirinto2Activity"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".activities.Labirinto3Activity"
-            android:exported="false"/>
-
+            android:exported="false" />
     </application>
 
 </manifest>
