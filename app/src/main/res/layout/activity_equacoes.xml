@@ -24,22 +24,24 @@
         android:id="@+id/textView17"
         android:layout_width="113dp"
         android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:text="Equação"
+        android:textAlignment="center"
         android:textColor="#03233C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
         app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="149dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="149dp" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="113dp"
         android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:text="Resposta"
+        android:textAlignment="center"
         android:textColor="#03233C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
@@ -54,6 +56,7 @@
         android:layout_height="45dp"
         android:layout_gravity="center"
         android:text="Dica"
+        android:textAlignment="center"
         android:textColor="#03233C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView15"
@@ -68,7 +71,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="sans-serif-black"
-        android:text="              LabMat"
+        android:text="LabMat"
+        android:textAlignment="center"
         android:textColor="#03233C"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
@@ -80,42 +84,42 @@
 
     <EditText
         android:id="@+id/textView6"
-        android:layout_width="400dp"
-        android:layout_height="61dp"
+        android:layout_width="375dp"
+        android:layout_height="68dp"
         android:layout_marginTop="68dp"
         android:hint="Equação"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="5dp" />
+        tools:layout_editor_absoluteX="20dp" />
 
     <EditText
         android:id="@+id/textView14"
-        android:layout_width="400dp"
-        android:layout_height="61dp"
+        android:layout_width="375dp"
+        android:layout_height="68dp"
         android:layout_marginTop="52dp"
         android:hint="Resposta"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@id/textView6"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="5dp" />
+        tools:layout_editor_absoluteX="18dp" />
 
     <EditText
         android:id="@+id/textView15"
-        android:layout_width="400dp"
-        android:layout_height="61dp"
+        android:layout_width="375dp"
+        android:layout_height="68dp"
         android:layout_marginTop="52dp"
         android:hint="Dica"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@id/textView14"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="5dp" />
+        tools:layout_editor_absoluteX="20dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="274dp"
         android:layout_height="65dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="Registrar"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,15 +132,13 @@
         android:id="@+id/button3"
         android:layout_width="274dp"
         android:layout_height="65dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:text="Visualizar"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button"
-        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

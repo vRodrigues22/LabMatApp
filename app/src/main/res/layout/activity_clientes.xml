@@ -33,23 +33,19 @@
             android:layout_marginTop="-55dp"
             android:fontFamily="sans-serif-black"
             android:text="LabMat"
+            android:textAlignment="center"
             android:textColor="#03233C"
             android:textSize="40sp" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="136dp"
-            android:layout_height="111dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/perfil" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif-black"
             android:text="Seja bem-vindo!"
+            android:textAlignment="center"
             android:textColor="#03233C"
             android:textSize="24sp" />
 
@@ -58,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="60dp"
             android:text="E-mail"
             android:textColor="#03233C"
             android:textSize="24sp" />
@@ -116,7 +112,7 @@
             android:layout_width="274dp"
             android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
             android:text="Entrar"
             android:textSize="24sp"/>
 
