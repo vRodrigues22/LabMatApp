@@ -17,21 +17,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ipet"
         tools:targetApi="31">
+
         <activity
             android:name=".activities.EquacaoviewActivity"
             android:exported="false" />
+
         <activity
             android:name=".activities.TurmaActivity"
             android:exported="false" />
+
         <activity
             android:name=".activities.HomeProfessorActivity"
             android:exported="false" />
+
         <activity
-            android:name=".activities.Equacoes"
+            android:name=".activities.EquacoesActivity"
             android:exported="false" />
-        <activity
-            android:name=".activities.MainActivity$Equacoes"
-            android:exported="false" />
+
         <activity
             android:name=".activities.ProgressoActivity"
             android:exported="false" />
