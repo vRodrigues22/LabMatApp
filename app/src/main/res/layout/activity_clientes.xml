@@ -113,12 +113,12 @@
 
         <Button
             android:id="@+id/entrarButtoncliente"
-            android:layout_width="321dp"
-            android:layout_height="61dp"
+            android:layout_width="274dp"
+            android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:text="Entrar"
-            android:textSize="20sp"/>
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/textView5"

@@ -42,7 +42,7 @@ public class ClientesActivity extends AppCompatActivity {
         editTextSenha = findViewById(R.id.edt_senha2);
         loginButton = findViewById(R.id.entrarButtoncliente);
         clientecadastro = findViewById(R.id.textView5); // TextView "Cadastre-se"
-        esqueceuSenhaTextView = findViewById(R.id.esqueceuSenhaTextView);
+        esqueceuSenhaTextView = findViewById(R.id.esqueceuSenhaTextView);  // TextView "Esqueceu a senha?"
     }
 
     private void verificarUsuarioLogado() {
@@ -112,11 +112,34 @@ public class ClientesActivity extends AppCompatActivity {
 
         // Listener para o link "Cadastre-se"
         clientecadastro.setOnClickListener(v -> abrirTelaCadastro());
+
+        // Listener para o link "Esqueceu a senha"
+        esqueceuSenhaTextView.setOnClickListener(v -> mostrarDialogoRedefinirSenha());
     }
 
     // Abre a tela de cadastro
     private void abrirTelaCadastro() {
         Intent intent = new Intent(ClientesActivity.this, CadastroActivity.class);  // Redireciona para CadastroActivity
         startActivity(intent);
+    }
+
+    // Método para mostrar o diálogo de redefinição de senha
+    private void mostrarDialogoRedefinirSenha() {
+        String email = editTextEmail.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)) {
+            exibirMensagem("Por favor, insira seu email.");
+            return;
+        }
+
+        // Enviar email de redefinição de senha
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        exibirMensagem("Email de redefinição de senha enviado.");
+                    } else {
+                        exibirMensagem("Erro ao enviar o email. Verifique o endereço de e-mail.");
+                    }
+                });
     }
 }

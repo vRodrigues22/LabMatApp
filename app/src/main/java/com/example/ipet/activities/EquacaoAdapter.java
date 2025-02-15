@@ -24,6 +24,7 @@ public class EquacaoAdapter extends RecyclerView.Adapter<EquacaoAdapter.EquacaoV
         return new EquacaoViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull EquacaoViewHolder holder, int position) {
         Equacao equacao = equacoesList.get(position);
