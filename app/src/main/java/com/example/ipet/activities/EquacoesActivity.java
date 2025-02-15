@@ -51,7 +51,7 @@ public class EquacoesActivity extends AppCompatActivity {
         });
     }
 
-    // Método para registrar a equação
+    // Metodo para registrar a equação
     private void registrarEquacao() {
         final String equacao = editEquacao.getText().toString();
         final String resposta = editResposta.getText().toString();

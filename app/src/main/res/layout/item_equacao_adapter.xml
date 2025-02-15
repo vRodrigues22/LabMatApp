@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="8dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textEquacao"
+                android:layout_width="354dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:layout_marginTop="48dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Equação:" />
+
+            <TextView
+                android:id="@+id/textResposta"
+                android:layout_width="354dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textEquacao"
+                tools:text="Resposta:" />
+
+            <TextView
+                android:id="@+id/textDica"
+                android:layout_width="354dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textResposta"
+                tools:text="Dica:" />
+
+            <TextView
+                android:id="@+id/btnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn"
+                android:backgroundTint="@color/white"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="6dp"
+                android:text="Remover"
+                android:textColor="@color/color_delete"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
+                app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDica"
+                app:layout_constraintVertical_bias="1.0"
+                tools:targetApi="lollipop" />
+
+            <TextView
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="24dp"
+                android:background="@drawable/bg_btn"
+                android:backgroundTint="@color/white"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="6dp"
+                android:text="Editar"
+                android:textColor="@color/color_edit"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnDelete"
+                app:layout_constraintTop_toBottomOf="@+id/textDica"
+                app:layout_constraintVertical_bias="0.666" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

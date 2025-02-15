@@ -123,7 +123,7 @@ public class ClientesActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // Método para mostrar o diálogo de redefinição de senha
+    // Metodo para mostrar o diálogo de redefinição de senha
     private void mostrarDialogoRedefinirSenha() {
         String email = editTextEmail.getText().toString().trim();
 

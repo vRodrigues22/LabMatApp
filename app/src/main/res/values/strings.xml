@@ -12,4 +12,6 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="equa_o">Equação</string>
+    <string name="carregando_tarefas">Carregando tarefas...</string>
+    <string name="todo">TODO</string>
 </resources>

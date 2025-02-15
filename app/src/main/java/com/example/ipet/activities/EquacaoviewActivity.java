@@ -1,7 +1,9 @@
 package com.example.ipet.activities;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ipet.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +22,11 @@ public class EquacaoviewActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
-    private List<EquacaoAdapter.Equacao> equacoesList;
+    private List<Equacao> equacoesList;
     private EquacaoAdapter equacaoAdapter;
+    private ProgressBar progressBar;
+    private TextView textInfo;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +34,13 @@ public class EquacaoviewActivity extends AppCompatActivity {
 
         // Inicializa os componentes
         db = FirebaseFirestore.getInstance();
-        recyclerView = findViewById(R.id.recyclerViewEquacoes);
+        recyclerView = findViewById(R.id.rvTask);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Cria uma lista de equações e o adapter
+        progressBar = findViewById(R.id.progressBar);
+        textInfo = findViewById(R.id.textInfo);
+
+        // Cria a lista de equações e o Adapter
         equacoesList = new ArrayList<>();
         equacaoAdapter = new EquacaoAdapter(this, equacoesList);
         recyclerView.setAdapter(equacaoAdapter);
@@ -42,22 +49,28 @@ public class EquacaoviewActivity extends AppCompatActivity {
         carregarEquacoes();
     }
 
-    // Método para carregar as equações do Firestore
     private void carregarEquacoes() {
-        db.collection("equacoes")
-                .get()
+        // Exibe o progresso enquanto as equações estão sendo carregadas
+        progressBar.setVisibility(View.VISIBLE);
+        textInfo.setVisibility(View.VISIBLE);
+
+        db.collection("equacoes")  // A coleção "equacoes" no Firestore
+                .get()  // Obtém todos os documentos na coleção
                 .addOnCompleteListener(this, task -> {
+                    progressBar.setVisibility(View.GONE);  // Esconde o ProgressBar quando terminar
+                    textInfo.setVisibility(View.GONE);  // Esconde a mensagem de "Carregando...".
+
                     if (task.isSuccessful()) {
-                        equacoesList.clear(); // Limpa a lista antes de adicionar novas equações
+                        equacoesList.clear();  // Limpa a lista antes de adicionar novas equações
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String equacao = document.getString("equacao");
                             String resposta = document.getString("resposta");
                             String dica = document.getString("dica");
 
-                            // Adiciona a equação à lista
-                            equacoesList.add(new EquacaoAdapter.Equacao(equacao, resposta, dica));
+                            // Cria um objeto Equacao e adiciona à lista
+                            equacoesList.add(new Equacao(equacao, resposta, dica));
                         }
-                        equacaoAdapter.notifyDataSetChanged(); // Atualiza o RecyclerView
+                        equacaoAdapter.notifyDataSetChanged();  // Atualiza o RecyclerView
                     } else {
                         Toast.makeText(EquacaoviewActivity.this, "Erro ao carregar as equações", Toast.LENGTH_SHORT).show();
                     }
