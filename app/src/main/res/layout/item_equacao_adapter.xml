@@ -23,8 +23,8 @@
 
             <TextView
                 android:id="@+id/textEquacao"
-                android:layout_width="354dp"
-                android:layout_height="24dp"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
                 android:layout_margin="16dp"
                 android:textColor="@color/blue"
                 android:textStyle="bold"
@@ -35,8 +35,8 @@
 
             <TextView
                 android:id="@+id/textResposta"
-                android:layout_width="354dp"
-                android:layout_height="24dp"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
                 android:layout_margin="16dp"
                 android:textColor="@color/blue"
                 android:textStyle="bold"
@@ -47,8 +47,8 @@
 
             <TextView
                 android:id="@+id/textDica"
-                android:layout_width="354dp"
-                android:layout_height="24dp"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
                 android:layout_margin="16dp"
                 android:textColor="@color/blue"
                 android:textStyle="bold"

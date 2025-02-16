@@ -55,6 +55,13 @@ public class EquacaoviewActivity extends AppCompatActivity {
 
         // Carregar as equações do Firestore
         carregarEquacoes();
+
+        // Configura o clique do FAB para redirecionar para a tela de cadastro
+        findViewById(R.id.fabAdd).setOnClickListener(v -> {
+            // Quando o FAB é clicado, abre a tela de cadastro de equações
+            Intent intent = new Intent(EquacaoviewActivity.this, EquacoesActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void carregarEquacoes() {
