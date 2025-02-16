@@ -16,10 +16,12 @@ public class EquacaoAdapter extends RecyclerView.Adapter<EquacaoAdapter.EquacaoV
 
     private Context context;
     private List<Equacao> equacoesList;
+    private OnEquacaoClickListener onEquacaoClickListener;
 
-    public EquacaoAdapter(Context context, List<Equacao> equacoesList) {
+    public EquacaoAdapter(Context context, List<Equacao> equacoesList, OnEquacaoClickListener onEquacaoClickListener) {
         this.context = context;
         this.equacoesList = equacoesList;
+        this.onEquacaoClickListener = onEquacaoClickListener;
     }
 
     @Override
@@ -38,6 +40,15 @@ public class EquacaoAdapter extends RecyclerView.Adapter<EquacaoAdapter.EquacaoV
         holder.textEquacao.setText(equacao.getEquacao());
         holder.textResposta.setText(equacao.getResposta());
         holder.textDica.setText(equacao.getDica());
+
+        // Lógica para os botões de editar e excluir
+        holder.btnEdit.setOnClickListener(v -> {
+            onEquacaoClickListener.onEditClick(equacao);  // Lógica de edição
+        });
+
+        holder.btnDelete.setOnClickListener(v -> {
+            onEquacaoClickListener.onDeleteClick(equacao);  // Lógica de exclusão
+        });
     }
 
     @Override
@@ -46,17 +57,25 @@ public class EquacaoAdapter extends RecyclerView.Adapter<EquacaoAdapter.EquacaoV
         return equacoesList.size();
     }
 
-    // ViewHolder para armazenar as referências dos TextViews
+    // Interface para os cliques nos botões de editar e excluir
+    public interface OnEquacaoClickListener {
+        void onEditClick(Equacao equacao);  // Lógica de edição
+
+        void onDeleteClick(Equacao equacao);  // Lógica de exclusão
+    }
+
+    // ViewHolder para armazenar as referências dos TextViews e botões
     public class EquacaoViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textEquacao, textResposta, textDica;
+        TextView textEquacao, textResposta, textDica, btnEdit, btnDelete;
 
         public EquacaoViewHolder(View itemView) {
             super(itemView);
             textEquacao = itemView.findViewById(R.id.textEquacao);
             textResposta = itemView.findViewById(R.id.textResposta);
             textDica = itemView.findViewById(R.id.textDica);
+            btnEdit = itemView.findViewById(R.id.btnEdit);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
         }
     }
 }
-

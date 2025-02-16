@@ -4,11 +4,13 @@ public class Equacao {
     private String equacao;
     private String resposta;
     private String dica;
+    private String id;
 
-    public Equacao(String equacao, String resposta, String dica) {
+    public Equacao(String equacao, String resposta, String dica, String id) {
         this.equacao = equacao;
         this.resposta = resposta;
         this.dica = dica;
+        this.id = id;
     }
 
     public String getEquacao() {
@@ -22,22 +24,8 @@ public class Equacao {
     public String getDica() {
         return dica;
     }
-}
 
-
-/*
-import android.os.Parcelable
-import br.com.hellodev.task.helper.FirebaseHelper
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
-data class Task(
-    var id: String = "",
-    var description: String = "",
-    var status: Int = 0
-) : Parcelable {
-    init {
-        this.id = FirebaseHelper.getDatabase().push().key ?: ""
+    public String getId() {
+        return id;
     }
 }
- */

@@ -76,6 +76,11 @@ public class EquacoesActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Sucesso ao registrar a equação
                         Toast.makeText(EquacoesActivity.this, "Equação registrada com sucesso", Toast.LENGTH_SHORT).show();
+
+                        editEquacao.setText("");
+                        editResposta.setText("");
+                        editDica.setText("");
+
                     } else {
                         // Erro ao registrar a equação
                         Toast.makeText(EquacoesActivity.this, "Erro ao registrar equação", Toast.LENGTH_SHORT).show();

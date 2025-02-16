@@ -4,4 +4,11 @@
     <item name="textResposta" type="id" />
     <item name="textDica" type="id" />
     <item name="recyclerViewEquacoes" type="id" />
+    <item name="btnDelete" type="id" />
+    <item name="btnEdit" type="id" />
+    <item name="editEquacao" type="id" />
+    <item name="editResposta" type="id" />
+    <item name="editDica" type="id" />
+    <item name="editLayout" type="id" />
+    <item name="viewLayout" type="id" />
 </resources>
