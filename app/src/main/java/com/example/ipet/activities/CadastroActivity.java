@@ -29,6 +29,7 @@ public class CadastroActivity extends AppCompatActivity {
     private EditText edt_email;
     private EditText edt_senha;
     private EditText edt_senhaconfirme;
+    private EditText edt_dataNascimento;  // Campo para data de nascimento
     private FirebaseFirestore db;
 
     @Override
@@ -38,11 +39,13 @@ public class CadastroActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
+        // Inicializando os campos de input
         btncadastro = findViewById(R.id.cadastroButtoncliente);
         edt_email = findViewById(R.id.edt_email);
         edt_nome = findViewById(R.id.edt_nome);
         edt_senha = findViewById(R.id.edt_senha);
         edt_senhaconfirme = findViewById(R.id.edt_senhaconfirme);
+        edt_dataNascimento = findViewById(R.id.edt_dataNascimento);  // Inicializa o campo de data de nascimento
 
         btncadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +54,7 @@ public class CadastroActivity extends AppCompatActivity {
                 final String email = edt_email.getText().toString();
                 final String senha = edt_senha.getText().toString();
                 String senhaConfirme = edt_senhaconfirme.getText().toString();
+                final String dataNascimento = edt_dataNascimento.getText().toString();  // Coleta a data de nascimento
 
                 // Verifique se os campos de senha e confirmação de senha coincidem
                 if (!senha.equals(senhaConfirme)) {
@@ -80,6 +84,7 @@ public class CadastroActivity extends AppCompatActivity {
                                     userData.put("nome", nome);
                                     userData.put("email", email);
                                     userData.put("pontuacao", 0);
+                                    userData.put("dataNascimento", dataNascimento);  // Adiciona a data de nascimento
                                     userData.put("isSuperUser", isSuperUser); // Define se é super usuário
 
                                     // Salva os dados do usuário no Firestore

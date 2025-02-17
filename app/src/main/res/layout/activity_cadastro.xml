@@ -16,25 +16,15 @@
     android:layout_gravity="center_vertical|center_horizontal"
     tools:context=".activities.CadastroActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="-55dp"
-        android:fontFamily="sans-serif-black"
-        android:text="LabMat"
-        android:textColor="#03233C"
-        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="168dp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
         android:visibility="visible"
         app:srcCompat="@drawable/labmatttt" />
+
 
     <TextView
         android:id="@+id/textView4"
@@ -54,26 +44,25 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-black"
-        android:textColor="@color/black"
         android:text="Crie sua conta"
         android:textAlignment="center"
+        android:textColor="@color/blue"
         android:textSize="24sp" />
-
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="Nome"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:textColor="@color/blue"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edt_nome"
-        android:layout_width="400dp"
-        android:layout_height="61dp"
+        android:layout_width="390dp"
+        android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:background="@color/white"
@@ -84,20 +73,45 @@
         android:padding="16dp"
         android:textSize="20sp" />
 
+
+    <TextView
+        android:id="@+id/textNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="Data de nascimento"
+        android:textColor="@color/blue"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edt_dataNascimento"
+        android:layout_width="390dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:drawableStart="@android:drawable/ic_menu_my_calendar"
+        android:drawablePadding="16dp"
+        android:hint="Ex.: (DD/MM/AAAA)"
+        android:inputType="date"
+        android:padding="16dp"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="Email"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:textColor="@color/blue"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edt_email"
-        android:layout_width="400dp"
-        android:layout_height="61dp"
+        android:layout_width="390dp"
+        android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:background="@color/white"
@@ -113,15 +127,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Senha"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:textColor="@color/blue"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edt_senha"
-        android:layout_width="400dp"
-        android:layout_height="61dp"
+        android:layout_width="390dp"
+        android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:background="@color/white"
@@ -137,15 +151,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Confirmação de senha"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:textColor="@color/blue"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edt_senhaconfirme"
-        android:layout_width="400dp"
-        android:layout_height="61dp"
+        android:layout_width="390dp"
+        android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:background="@color/white"
@@ -161,7 +175,7 @@
         android:layout_width="274dp"
         android:layout_height="65dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/round_button"
         android:backgroundTint="#0934BD"
         android:fontFamily="sans-serif-medium"

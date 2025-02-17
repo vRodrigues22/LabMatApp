@@ -271,4 +271,6 @@ public class LabyrinthActivity extends AppCompatActivity {
         hintText.setText("");  // Limpa a dica ao mostrar uma nova questão
         scoreText.setText("Pontuação: " + score);  // Exibe a pontuação atual
     }
+
+
 }
