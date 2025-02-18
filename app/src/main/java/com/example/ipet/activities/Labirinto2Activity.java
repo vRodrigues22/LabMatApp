@@ -35,31 +35,29 @@ public class Labirinto2Activity extends AppCompatActivity {
     private List<String> hints = new ArrayList<>();
     private List<Integer> answers = new ArrayList<>(); // respostas corretas para validação
     private FirebaseFirestore db;
+    private DocumentReference documentReference;
     private FirebaseUser user;
-
     private long startTime = 0;  // Armazena o tempo inicial
     private long elapsedTime = 0; // Armazena o tempo já decorrido
     private CountDownTimer countDownTimer;  // Cronômetro
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_labirinto2);
-
-        // Inicializa os componentes da UI
+        timeText = findViewById(R.id.timeText);  // Inicializa o TextView de tempo
         equationText = findViewById(R.id.equationText);
         scoreText = findViewById(R.id.scoreText);
         hintText = findViewById(R.id.hintText);
-        timeText = findViewById(R.id.timeText);  // Inicializa o TextView de tempo
         answerInput = findViewById(R.id.answerInput);
         submitButton = findViewById(R.id.calcbtn);
         hintButton = findViewById(R.id.hintButton);
 
-        // Inicializa Firestore e o usuário autenticado
         db = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        // Preenche as listas de equações, respostas e dicas
         equations.add("Equação : 25 * 2 + 4³");
         answers.add(89);
         hints.add("Dica: Resolva a potência primeiro, depois a multiplicação e a adição.");
@@ -80,14 +78,14 @@ public class Labirinto2Activity extends AppCompatActivity {
         answers.add(28);
         hints.add("Dica: Siga a ordem: divisão, multiplicação e, por fim, adição.");
 
-        // Recupera o tempo da fase anterior
-        getPreviousTime();
-
         updateQuestion();
+
+        // Começa a contagem do tempo
+        startTimer();
+        getPreviousTime();
 
         updatePlayerPosition(currentPlayerPosition, R.drawable.square_player);
 
-        // Evento de clique no botão de submissão (resposta)
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +98,7 @@ public class Labirinto2Activity extends AppCompatActivity {
                 // Verificar resposta
                 int answer = Integer.parseInt(userAnswer);
                 if (answer == answers.get(currentEquationIndex)) {
-                    score += 10; // Incrementa a pontuação
+                    score+= 10; // Incrementa a pontuação
                     Toast.makeText(Labirinto2Activity.this, "Correto! Pontuação: " + score, Toast.LENGTH_SHORT).show();
                     movePlayer();
                     currentEquationIndex++;
@@ -109,15 +107,23 @@ public class Labirinto2Activity extends AppCompatActivity {
                     } else {
                         // Atualiza o scoreText antes de salvar
                         scoreText.setText("Pontuação: " + score);
-                        saveScoreToFirestore();
-                        Toast.makeText(Labirinto2Activity.this, "Você completou a Etapa 2! Pontuação total: " + score, Toast.LENGTH_LONG).show();
-                        // Redireciona para o Labirinto 3 automaticamente
-                        redirectToLabirinto3();
+
+                        // Aqui chamamos saveScoreToFirestore e emitimos o aviso
+                        saveScoreAndTimeToFirestore();
+
+                        Toast.makeText(Labirinto2Activity.this, "Você completou a Etapa 1! Pontuação total: " + score, Toast.LENGTH_LONG).show();
+                        // Bloqueia o botão de enviar resposta
+                        submitButton.setEnabled(false);
+                        hintButton.setEnabled(false);
+                        answerInput.setEnabled(false);
+
+                        // Direciona para a próxima página (Labirinto2Activity)
+                        startActivity(new Intent(Labirinto2Activity.this, Labirinto3Activity.class));
+                        finish(); // Finaliza a atividade atual para não retornar ao nível 1
                     }
                 } else {
                     Toast.makeText(Labirinto2Activity.this, "Resposta incorreta, tente novamente", Toast.LENGTH_SHORT).show();
                 }
-
                 answerInput.setText("");
             }
         });
@@ -130,9 +136,78 @@ public class Labirinto2Activity extends AppCompatActivity {
         });
     }
 
+    private void movePlayer() {
+        if (currentPlayerPosition >= TOTAL_POSITIONS - 1) {
+            // Aqui emite o aviso quando o jogador chega ao final
+            Toast.makeText(this, "Parabéns! Você completou o labirinto!", Toast.LENGTH_LONG).show();
+            saveScoreAndTimeToFirestore();
+            return;
+        }
+
+        // Atualiza a posição anterior do jogador com a imagem da célula vazia
+        updatePlayerPosition(currentPlayerPosition, R.drawable.cell_image);
+
+        int row = currentPlayerPosition / 5; // Linha atual
+        int nextPosition;
+
+        // Define o movimento com base na linha atual (zigue-zague)
+        if (row % 2 == 0) {
+            // Em linhas pares, mova para a direita
+            nextPosition = currentPlayerPosition + ADVANCE_STEPS;
+        } else {
+            // Em linhas ímpares, mova para a esquerda
+            nextPosition = currentPlayerPosition - ADVANCE_STEPS;
+        }
+
+        // Verifica se atingimos o fim da linha e passa para a próxima linha, se necessário
+        if ((row % 2 == 0 && nextPosition % 5 == 0) || (row % 2 != 0 && nextPosition < row * 5)) {
+            nextPosition = currentPlayerPosition + (5 - (currentPlayerPosition % 5));
+        }
+
+        // Ajusta a posição para garantir que o jogador não ultrapasse os limites do labirinto
+        if (nextPosition >= TOTAL_POSITIONS) {
+            nextPosition = TOTAL_POSITIONS - 1;
+        } else if (nextPosition < 0) {
+            nextPosition = 0;
+        }
+
+        // Atualiza a nova posição do jogador com a imagem do jogador
+        currentPlayerPosition = nextPosition;
+        updatePlayerPosition(currentPlayerPosition, R.drawable.square_player);
+    }
+
+    private void updatePlayerPosition(int position, int drawableId) {
+        int row = position / 5; // 5 colunas
+        int col = position % 5;
+
+        if (row % 2 != 0) {
+            col = 4 - col;
+        }
+
+        String cellId = "mazePosition" + (row * 5 + col);
+        int resID = getResources().getIdentifier(cellId,
+
+                "id", getPackageName());
+
+        ImageView cell = findViewById(resID);
+        if (cell != null) {
+            cell.setImageResource(drawableId);
+        }
+    }
+
+    // Atualiza a questão e a dica
+    private void updateQuestion() {
+        equationText.setText(equations.get(currentEquationIndex));
+        hintText.setText(""); // Limpa a dica ao mostrar uma nova questão
+        scoreText.setText("Pontuação: " + score);
+    }
+
+
+
+// Função para iniciar o cronômetro
 
     private void startTimer() {
-        startTime = System.currentTimeMillis() - elapsedTime;
+        startTime = System.currentTimeMillis();
         countDownTimer = new CountDownTimer(Long.MAX_VALUE, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -142,11 +217,13 @@ public class Labirinto2Activity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                // Ação quando o cronômetro acabar
+                elapsedTime = (System.currentTimeMillis() - startTime) / 1000;
+                timeText.setText("Tempo: " + elapsedTime + "s");
             }
         };
         countDownTimer.start();
     }
+
 
     private void getPreviousTime() {
         db.collection("usuarios").document(user.getUid())
@@ -154,8 +231,11 @@ public class Labirinto2Activity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
+                        //if (document.exists() && document.contains("tempo1")) {
+                        //    elapsedTime = document.getLong("tempo1");
+                        //}
                         if (document.exists() && document.contains("tempo1")) {
-                            elapsedTime = document.getLong("tempo1");
+                            elapsedTime = document.getLong("tempo1") != null ? document.getLong("tempo1") : 0;
                         }
                         startTimer();
                     } else {
@@ -164,80 +244,56 @@ public class Labirinto2Activity extends AppCompatActivity {
                 });
     }
 
-    private void saveScoreToFirestore() {
-        Map<String, Object> userData = new HashMap<>();
-        userData.put("pontuacao", score);
-        userData.put("tempo2", elapsedTime);  // Salva o tempo da fase 2
-
+    // Salva a pontuação no Firestore
+    private void saveScoreAndTimeToFirestore() {
+        // Primeiro, vamos recuperar a pontuação atual do usuário
         db.collection("usuarios").document(user.getUid())
-                .update(userData)
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(Labirinto2Activity.this, "Pontuação e Tempo salvos com sucesso!", Toast.LENGTH_SHORT).show();
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(Labirinto2Activity.this, "Erro ao salvar dados", Toast.LENGTH_SHORT).show();
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        int currentScore = 0;
+
+                        // Verifica se o documento existe e se a pontuação está presente
+                        if (document.exists() && document.contains("pontuacao")) {
+                            currentScore = document.getLong("pontuacao").intValue(); // Obtém a pontuação atual
+                        }
+
+                        // Soma a pontuação atual com a nova pontuação
+                        int newScore = currentScore + score;
+
+                        // Prepara o novo valor para atualizar no Firestore
+                        Map<String, Object> update = new HashMap<>();
+                        update.put("pontuacao", newScore);
+
+                        update.put("tempo2", elapsedTime);
+
+                        // Atualiza o Firestore com a nova pontuação
+                        //db.collection("usuarios").document(user.getUid())
+                        //        .update(update)
+                        //        .addOnCompleteListener(updateTask -> {
+                        //            if (updateTask.isSuccessful()) {
+                        //                Toast.makeText(Labirinto2Activity.this, "Pontuação e Tempo salvos com sucesso!", Toast.LENGTH_SHORT).show();
+                        //            } else {
+                        //                Toast.makeText(Labirinto2Activity.this, "Erro ao salvar pontuação", Toast.LENGTH_SHORT).show();
+                        //            }
+                        //        });
+                        db.collection("usuarios").document(user.getUid())
+                                .update(update)
+                                .addOnCompleteListener(updateTask -> {
+                                    if (updateTask.isSuccessful()) {
+                                        Toast.makeText(Labirinto2Activity.this, "Pontuação e Tempo salvos com sucesso!", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(Labirinto2Activity.this, "Erro ao salvar pontuação", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                    } else {
+                        Toast.makeText(Labirinto2Activity.this, "Erro ao recuperar pontuação atual", Toast.LENGTH_SHORT).show();
+                    }
                 });
+
     }
 
-    private void movePlayer() {
-        if (currentPlayerPosition >= TOTAL_POSITIONS - 1) {
-            Toast.makeText(this, "Parabéns! Você completou o labirinto!", Toast.LENGTH_LONG).show();
-            saveScoreToFirestore();
-            return;
-        }
 
-        updatePlayerPosition(currentPlayerPosition, R.drawable.cell_image);
-
-        int row = currentPlayerPosition / 5;
-        int nextPosition;
-
-        if (row % 2 == 0) {
-            nextPosition = currentPlayerPosition + ADVANCE_STEPS;
-        } else {
-            nextPosition = currentPlayerPosition - ADVANCE_STEPS;
-        }
-
-        if ((row % 2 == 0 && nextPosition % 5 == 0) || (row % 2 != 0 && nextPosition < row * 5)) {
-            nextPosition = currentPlayerPosition + (5 - (currentPlayerPosition % 5));
-        }
-
-        if (nextPosition >= TOTAL_POSITIONS) {
-            nextPosition = TOTAL_POSITIONS - 1;
-        } else if (nextPosition < 0) {
-            nextPosition = 0;
-        }
-
-        currentPlayerPosition = nextPosition;
-        updatePlayerPosition(currentPlayerPosition, R.drawable.square_player);
-    }
-
-    private void updatePlayerPosition(int position, int drawableId) {
-        int row = position / 5;
-        int col = position % 5;
-
-        if (row % 2 != 0) {
-            col = 4 - col;
-        }
-
-        String cellId = "mazePosition" + (row * 5 + col);
-        int resID = getResources().getIdentifier(cellId, "id", getPackageName());
-
-        ImageView cell = findViewById(resID);
-        if (cell != null) {
-            cell.setImageResource(drawableId);
-        }
-    }
-
-    private void updateQuestion() {
-        equationText.setText(equations.get(currentEquationIndex));
-        hintText.setText("");
-        scoreText.setText("Pontuação: " + score);
-    }
-
-    // Função para redirecionar para a terceira fase (Labirinto3Activity)
-    private void redirectToLabirinto3() {
-        // Chama a próxima fase automaticamente após completar o labirinto
-        startActivity(new Intent(Labirinto2Activity.this, Labirinto3Activity.class));
-        finish();  // Finaliza a atividade atual para não retornar ao nível 2
-    }
 }

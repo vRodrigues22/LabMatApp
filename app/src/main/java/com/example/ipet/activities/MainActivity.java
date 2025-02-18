@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         // Configurações dos botões de níveis e outras atividades
         buttonNivel1.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LabyrinthActivity.class)));
         buttonNivel2.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Labirinto2Activity.class)));
-        buttonNivel3.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Labirinto2Activity.class)));
+        buttonNivel3.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Labirinto3Activity.class)));
         perfil.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PerfilActivity.class)));
         daily.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, DailyActivity.class)));
 
