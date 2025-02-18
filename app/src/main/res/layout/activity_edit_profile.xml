@@ -17,31 +17,58 @@
             android:layout_width="337dp"
             android:layout_height="51dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="44dp"
-            android:hint="Digite sua resposta"
-            android:inputType="number"
+            android:layout_marginTop="32dp"
+            android:hint=""
+            android:inputType="textEmailAddress"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nome" />
+            app:layout_constraintTop_toBottomOf="@+id/dataNascimento" />
 
         <EditText
             android:id="@+id/nome"
             android:layout_width="337dp"
             android:layout_height="51dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="68dp"
-            android:hint="Digite sua resposta"
-            android:inputType="number"
+            android:layout_marginTop="36dp"
+            android:hint=""
+            android:inputType="none"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileimage" />
+
+        <TextView
+            android:id="@+id/dtnascimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data de Nascimento"
+            android:textColor="@color/blue"
+            app:layout_constraintBottom_toTopOf="@+id/dataNascimento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.126"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nome"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+        <EditText
+            android:id="@+id/dataNascimento"
+            android:layout_width="337dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="28dp"
+            android:hint=""
+            android:inputType="date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nome"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome"
+            android:textColor="@color/blue"
             app:layout_constraintBottom_toTopOf="@+id/nome"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintHorizontal_bias="0.099"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileimage"
             app:layout_constraintVertical_bias="1.0" />
@@ -51,22 +78,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
+            android:textColor="@color/blue"
             app:layout_constraintBottom_toTopOf="@+id/email"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.093"
+            app:layout_constraintHorizontal_bias="0.095"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nome"
+            app:layout_constraintTop_toBottomOf="@+id/dataNascimento"
             app:layout_constraintVertical_bias="1.0" />
-
 
         <TextView
             android:id="@+id/labelsenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Senha"
+            android:textColor="@color/blue"
             app:layout_constraintBottom_toTopOf="@+id/senha"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.094"
+            app:layout_constraintHorizontal_bias="0.096"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email"
             app:layout_constraintVertical_bias="1.0" />
@@ -76,7 +104,7 @@
             android:layout_width="337dp"
             android:layout_height="51dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="36dp"
             android:hint="********"
             android:inputType="textPassword"
             app:layout_constraintStart_toStartOf="parent"

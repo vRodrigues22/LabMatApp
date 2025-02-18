@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,7 @@ public class PerfilActivity extends AppCompatActivity {
     private EditText edtNome, edtEmail, edtSenha;
     private Button btnAtualizar, btnExcluirPerfil, btnSairPerfil;
     private ImageView profileImage;
+    private TextView edtDataNascimento;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
@@ -53,6 +55,7 @@ public class PerfilActivity extends AppCompatActivity {
         edtNome = findViewById(R.id.nome);
         edtEmail = findViewById(R.id.email);
         edtSenha = findViewById(R.id.senha);
+        edtDataNascimento = findViewById(R.id.dataNascimento); // Referência ao EditText da Data de Nascimento
         btnAtualizar = findViewById(R.id.update);
         btnExcluirPerfil = findViewById(R.id.btnExcluirPerfil);
         btnSairPerfil = findViewById(R.id.btnSairPerfil);
@@ -74,6 +77,7 @@ public class PerfilActivity extends AppCompatActivity {
                             if (document.exists()) {
                                 edtNome.setText(document.getString("nome"));
                                 edtEmail.setText(document.getString("email"));
+                                edtDataNascimento.setText(document.getString("dataNascimento")); // Carregar Data de Nascimento
                             } else {
                                 exibirMensagem("Usuário não encontrado.");
                             }
@@ -99,6 +103,7 @@ public class PerfilActivity extends AppCompatActivity {
     private void atualizarDadosUsuario() {
         String novoNome = edtNome.getText().toString().trim();
         String novaSenha = edtSenha.getText().toString().trim();
+        String novaDataNascimento = edtDataNascimento.getText().toString().trim(); // Pega a nova data de nascimento
 
         if (novoNome.isEmpty()) {
             exibirMensagem("Nome não pode estar vazio.");
@@ -108,14 +113,15 @@ public class PerfilActivity extends AppCompatActivity {
         // Atualiza Firestore
         Map<String, Object> userData = new HashMap<>();
         userData.put("nome", novoNome);
+        userData.put("dataNascimento", novaDataNascimento); // Atualiza a data de nascimento
 
         db.collection("usuarios").document(currentUser.getUid())
                 .update(userData)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        exibirMensagem("Nome atualizado com sucesso.");
+                        exibirMensagem("Dados atualizados com sucesso.");
                     } else {
-                        exibirMensagem("Erro ao atualizar nome.");
+                        exibirMensagem("Erro ao atualizar dados.");
                     }
                 });
 
