@@ -13,6 +13,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
         android:text="Pontuação: 0"
+        android:textColor="@color/blue"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/timeText"
         app:layout_constraintHorizontal_bias="0.5"
@@ -26,6 +27,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="104dp"
         android:text="Tempo: 0s"
+        android:textColor="@color/blue"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -261,13 +263,13 @@
 
     <Button
         android:id="@+id/calcbtn"
-        android:layout_width="350dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="274dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="40dp"
         android:text="Responder"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/answerInput" />
 
@@ -275,7 +277,8 @@
         android:id="@+id/equationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="48dp"
+        android:textColor="@color/blue"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -284,11 +287,11 @@
 
     <Button
         android:id="@+id/hintButton"
-        android:layout_width="119dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="120dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="32dp"
         android:text="Dica"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calcbtn" />
@@ -297,11 +300,10 @@
         android:id="@+id/answerInput"
         android:layout_width="337dp"
         android:layout_height="51dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:hint="Digite sua resposta"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/equationText" />
 
@@ -309,15 +311,14 @@
         android:id="@+id/hintText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text=""
+        android:textColor="@color/blue"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hintButton"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintTop_toBottomOf="@id/hintButton" />
 
     <androidx.constraintlayout.helper.widget.Layer
         android:id="@+id/layer"
