@@ -1,14 +1,18 @@
 package com.example.ipet.activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ipet.R;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -47,7 +51,8 @@ public class EquacaoAdapter extends RecyclerView.Adapter<EquacaoAdapter.EquacaoV
         });
 
         holder.btnDelete.setOnClickListener(v -> {
-            onEquacaoClickListener.onDeleteClick(equacao);  // Lógica de exclusão
+            // Mostra um AlertDialog de confirmação antes de excluir
+            confirmarExclusao(equacao, position);
         });
     }
 
@@ -55,6 +60,39 @@ public class EquacaoAdapter extends RecyclerView.Adapter<EquacaoAdapter.EquacaoV
     public int getItemCount() {
         // Retorna o número de itens na lista de equações
         return equacoesList.size();
+    }
+
+    // Método para mostrar um AlertDialog pedindo confirmação de exclusão
+    private void confirmarExclusao(Equacao equacao, int position) {
+        new AlertDialog.Builder(context)
+                .setTitle("Confirmar Exclusão")
+                .setMessage("Você tem certeza de que deseja excluir esta equação?")
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        excluirEquacao(equacao, position);  // Excluir equação após confirmação
+                    }
+                })
+                .setNegativeButton("Não", null)
+                .show();
+    }
+
+    // Método para excluir a equação
+    private void excluirEquacao(Equacao equacao, int position) {
+        // Supondo que a exclusão seja realizada no Firestore
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("equacoes").document(equacao.getId())  // Usando o ID da equação para referenciá-la
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    // Excluir a equação localmente da lista e notificar o RecyclerView
+                    equacoesList.remove(position);
+                    notifyItemRemoved(position);
+                    Toast.makeText(context, "Equação excluída com sucesso", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    // Caso ocorra erro ao excluir, exibe uma mensagem
+                    Toast.makeText(context, "Erro ao excluir a equação: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 
     // Interface para os cliques nos botões de editar e excluir

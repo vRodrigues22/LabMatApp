@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="398dp"
+        android:layout_height="399dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="8dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="385dp"
+            android:layout_height="399dp">
+
+            <TextView
+                android:id="@+id/nomeTextView"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Nome"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/emailTextView"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="E-mail"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nomeTextView" />
+
+            <TextView
+                android:id="@+id/dataNascimentoTextView"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Data de Nascimento"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/emailTextView" />
+
+            <TextView
+                android:id="@+id/pontuacaoTextView"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Pontuação"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dataNascimentoTextView" />
+
+            <TextView
+                android:id="@+id/contasResolvidasTextView"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Contas Resolvidas"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pontuacaoTextView" />
+
+            <TextView
+                android:id="@+id/tempo1TextView"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Tempo Nível 1"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contasResolvidasTextView" />
+
+            <TextView
+                android:id="@+id/tempo2TextView"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Tempo Nível 2"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tempo1TextView" />
+
+            <TextView
+                android:id="@+id/tempo3TextView"
+                android:layout_width="350dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Tempo Nível 3"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tempo2TextView" />
+
+            <TextView
+                android:id="@+id/btnDelete1"
+                android:layout_width="67dp"
+                android:layout_height="17dp"
+                android:background="@drawable/bg_btn"
+                android:text="Remover"
+                android:textAlignment="center"
+                android:textColor="@color/color_delete"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tempo3TextView"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

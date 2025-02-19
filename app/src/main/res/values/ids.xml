@@ -11,4 +11,5 @@
     <item name="editDica" type="id" />
     <item name="editLayout" type="id" />
     <item name="viewLayout" type="id" />
+    <item name="recyclerView" type="id" />
 </resources>

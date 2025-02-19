@@ -20,6 +20,9 @@
         android:theme="@style/Theme.Ipet"
         tools:targetApi="31">
         <activity
+            android:name=".activities.TurmaActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.EquacaoeditActivity"
             android:exported="false" />
         <activity
