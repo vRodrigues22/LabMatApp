@@ -59,33 +59,33 @@ public class Labirinto3Activity extends AppCompatActivity{
         db = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        equations.add("Equação :(6² + 24) ÷ 3");
-        answers.add(16);
-        hints.add("Dica: Calcule a potência primeiro, some, depois divida.");
+        equations.add("Equação:(6² + 24) ÷ 3");
+        answers.add(20);
+        hints.add("Dica: Calcule a potência primeiro, some os resultados, depois divida.");
 
-        equations.add("Equação : 200 ÷ 4 + 30");
-        answers.add(80);
-        hints.add("Dica: Divida e depois some.");
+        equations.add("Calcule a distância entre os pontos A(0,0) e B(3,4). Onde x1=0, y1=0, x2=3 e y2=4.");
+        answers.add(5);
+        hints.add("Dica: Subtraia as coordenadas utilizando a formula: aplique a raiz quadrada sobre (x2-x1)² + (y2-y1)², ou seja, resolva a subtração, eleve os resultados a a potência, some os valores e tire a raiz quadrada. ");
 
-        equations.add("Equação : 5³ - 7 * 3");
-        answers.add(98);
+        equations.add("Equação: 5² - 7 * 3");
+        answers.add(4);
         hints.add("Dica: Potência primeiro, depois a multiplicação e subtração.");
 
-        equations.add("Equação :  (20 + 10) * 2");
+        equations.add("Equação:  (20 + 10) * 2");
         answers.add(60);
         hints.add("Dica: Resolva o parêntese e depois multiplique.");
 
-        equations.add("Equação :  18x - 9 = 63");
-        answers.add(4);
-        hints.add("Dica: Isole x para resolver.");
+        equations.add("Calcule a distância entre os pontos A(2, 3) e B(5, 7). Onde x1=2, y1=3, x2=5 e y2=7.");
+        answers.add(5);
+        hints.add("Subtraia as coordenadas utilizando a formula: aplique a raiz quadrada sobre (x2-x1)² + (y2-y1)², ou seja, resolva a subtração, eleve os resultados a a potência, some os valores e tire a raiz quadrada. ");
 
-        equations.add("Equação :  90 ÷ (3 + 6)");
+        equations.add("Equação:  90 / (3 + 6)");
         answers.add(10);
-        hints.add("Dica: Resolva o parêntese primeiro, depois divida.");
+        hints.add("Dica: Resolva os valores em parênteses primeiro, depois divida.");
 
-        equations.add("Equação : (12 + 8) * (3² - 5)");
+        equations.add("Equação: (12 + 8) * (3² - 5)");
         answers.add(80);
-        hints.add("Dica: Siga a ordem dos parênteses, depois calcule a potência e finalize com as operações.");
+        hints.add("Dica: Siga a ordem dos parênteses, depois calcule a potência e finalize com a multiplicação.");
 
         updateQuestion();
 

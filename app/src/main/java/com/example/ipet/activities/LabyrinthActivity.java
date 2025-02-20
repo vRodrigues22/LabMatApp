@@ -61,15 +61,15 @@ public class LabyrinthActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        equations.add("Equação : 108 / 9 + 5²");
-        answers.add(37);
-        hints.add("Dica: Resolva a potência primeiro, depois a divisão e soma.");
+        equations.add("Equação: (81 / 9) + 5²");
+        answers.add(34);
+        hints.add("Dica: Resolva a divisão em partes iguais, depois a potência,  em seguida some os resultados.");
 
-        equations.add("Equação : 12³");
-        answers.add(1728);
-        hints.add("Dica: 12 elevado a 3 é 12 multiplicado por si mesmo três vezes.");
+        equations.add("Equação: 12²");
+        answers.add(144);
+        hints.add("Dica: Eleve 12 a potência de 2, ou seja, 12 multiplicado por si mesmo.");
 
-        equations.add("Equação : 72 ÷ 8");
+        equations.add("Equação: 72 ÷ 8");
         answers.add(9);
         hints.add("Dica: Divida 72 em 8 partes iguais.");
 

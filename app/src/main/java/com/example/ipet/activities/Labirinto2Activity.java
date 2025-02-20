@@ -58,25 +58,25 @@ public class Labirinto2Activity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        equations.add("Equação : 25 * 2 + 4³");
-        answers.add(89);
-        hints.add("Dica: Resolva a potência primeiro, depois a multiplicação e a adição.");
+        equations.add("Equação: 4³ - 28 / 2");
+        answers.add(50);
+        hints.add("Dica: Resolva a potência primeiro, depois a divisão e a subtração.");
 
-        equations.add("Equação :144 ÷ 12");
-        answers.add(12);
-        hints.add("Dica: Divisão simples.");
+        equations.add("Equação: (31−10) / 3");
+        answers.add(7);
+        hints.add("Dica: Resolva a subtração primeiro que está entre parênteses, depois a divisão.");
 
-        equations.add("Equação : 7x + 15 = 50");
-        answers.add(5);
-        hints.add("Dica: Isole x.");
+        equations.add("Equação: 2x + 3 = 11");
+        answers.add(4);
+        hints.add("Dica: Isole x para resolver a equação linear e, em seguida, calcule o seu valor com a subtração e depois a divisão.");
 
-        equations.add("Equação :  3 * (15 + 5)");
+        equations.add("Equação:  3 * (15 + 5)");
         answers.add(60);
-        hints.add("Dica: Resolva o parêntese primeiro, depois multiplique.");
+        hints.add("Dica: Resolva o parêntese primeiro, depois multiplique os valores.");
 
-        equations.add("Equação : 64 ÷ 8 + 4 * 3");
-        answers.add(28);
-        hints.add("Dica: Siga a ordem: divisão, multiplicação e, por fim, adição.");
+        equations.add("Equação: 64 / 8 + 4 * 3");
+        answers.add(20);
+        hints.add("Dica: Resolva seguindo a ordem: divisão, multiplicação e, por fim, adição.");
 
         updateQuestion();
 
