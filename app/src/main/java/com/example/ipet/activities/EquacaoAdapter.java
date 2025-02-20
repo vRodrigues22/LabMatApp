@@ -62,7 +62,7 @@ public class EquacaoAdapter extends RecyclerView.Adapter<EquacaoAdapter.EquacaoV
         return equacoesList.size();
     }
 
-    // Método para mostrar um AlertDialog pedindo confirmação de exclusão
+    // Metodo para mostrar um AlertDialog pedindo confirmação de exclusão
     private void confirmarExclusao(Equacao equacao, int position) {
         new AlertDialog.Builder(context)
                 .setTitle("Confirmar Exclusão")
@@ -77,7 +77,7 @@ public class EquacaoAdapter extends RecyclerView.Adapter<EquacaoAdapter.EquacaoV
                 .show();
     }
 
-    // Método para excluir a equação
+    // Metodo para excluir a equação
     private void excluirEquacao(Equacao equacao, int position) {
         // Supondo que a exclusão seja realizada no Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
